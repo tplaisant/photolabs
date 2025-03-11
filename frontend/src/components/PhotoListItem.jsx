@@ -6,7 +6,9 @@ const PhotoListItem = (props) => {
 
   return (
     <>
-    <img src={urls.regular}/>
+    <div class="photo-list__item">
+      <img src={urls.regular}/>
+    </div>    
     <img src={user.profile}/>
     <br></br>
     {user.name}
