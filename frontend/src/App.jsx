@@ -1,4 +1,5 @@
 import PhotoListItem from './components/PhotoListItem';
+import PhotoFavButton from './components/PhotoFavButton';
 import "./styles/PhotoList.scss";
 import './App.scss';
 
@@ -24,17 +25,14 @@ photos.push(sampleDataForPhotoListItem)
 photos.push(sampleDataForPhotoListItem)
 photos.push(sampleDataForPhotoListItem)
 
-const listItems = photos.map((photo) => 
+const listItems = photos.map((photo, index) => 
   <div className='photo-list'>
-    <PhotoListItem key={photo.id} photoData={photo}/>
+    <PhotoListItem key={index} photoData={photo} onClick={() => PhotoFavButton(index)}/>
   </div>
 )
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-
-
-  console.log(photos)
 
   return (
     <div className="App">    

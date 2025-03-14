@@ -1,4 +1,5 @@
 import "../styles/PhotoListItem.scss";
+import PhotoFavButton from '../components/PhotoFavButton';
 
 const PhotoListItem = (props) => {
 
@@ -7,7 +8,7 @@ const PhotoListItem = (props) => {
 
   return (
     <div className ="photo-list__item">
-      <FavIcon />
+      <PhotoFavButton />
       <img className ="photo-list__image" src={urls.regular} onClick={() => onClick()}/>    
       <div className="photo-list__user-details">      
         <img className ="photo-list__user-profile" src={user.profile}/>
