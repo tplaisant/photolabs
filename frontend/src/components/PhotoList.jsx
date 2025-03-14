@@ -1,8 +1,10 @@
 import "../styles/PhotoList.scss";
 import PhotoListItem from '../components/PhotoListItem';
-import photos from '../mocks/photos';
 
-const PhotoList = () => {
+const PhotoList = (props) => {
+
+  const photos = props.photos;
+
   return (
     <ul className="photo-list">
       { photos.map((user, index) => 
