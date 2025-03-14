@@ -4,12 +4,12 @@ import PhotoFavButton from '../components/PhotoFavButton';
 const PhotoListItem = (props) => {
 
   const {id, location, urls, user} = props.photoData
-  const onClick = props.onClick
+  const indice = props.outra
 
   return (
     <div className ="photo-list__item">
-      <PhotoFavButton />
-      <img className ="photo-list__image" src={urls.regular} onClick={() => onClick()}/>    
+      <PhotoFavButton index={indice}/>
+      <img className ="photo-list__image" src={urls.regular}/>    
       <div className="photo-list__user-details">      
         <img className ="photo-list__user-profile" src={user.profile}/>
         <div className="photo-list__user-info">

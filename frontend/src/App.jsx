@@ -1,5 +1,4 @@
 import PhotoListItem from './components/PhotoListItem';
-import PhotoFavButton from './components/PhotoFavButton';
 import "./styles/PhotoList.scss";
 import './App.scss';
 
@@ -27,7 +26,7 @@ photos.push(sampleDataForPhotoListItem)
 
 const listItems = photos.map((photo, index) => 
   <div className='photo-list'>
-    <PhotoListItem key={index} photoData={photo} onClick={() => PhotoFavButton(index)}/>
+    <PhotoListItem key={index} photoData={photo} outra={index}/>
   </div>
 )
 
