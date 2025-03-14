@@ -52,34 +52,14 @@ const sampleDataForPhotoList = [
   },
 ];
 
-const listItems = sampleDataForPhotoList.map((user, index) => 
-      <PhotoListItem key={index} userData={user}/>
-  )
-
-  // {/* { Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) } */}
-
 const PhotoList = () => {
   return (
     <ul className="photo-list">
-      {/* Insert React */}
-      {listItems}
+      { sampleDataForPhotoList.map((user, index) => 
+      <PhotoListItem key={index} userData={user}/>
+      )}
     </ul>
   );
 };
 
 export default PhotoList;
-
-// .photo-list {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-//   list-style-type: none;
-//   margin: 0;
-//   padding: 0;
-// }
-
-// .photo-list:after {
-//   content: "";
-//   flex: 0 1 30%;
-//   margin: 5px;
-// }
