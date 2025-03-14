@@ -23,7 +23,7 @@ const TopicList = () => {
   return (
     <div className="top-nav-bar__topic-list">
       { sampleDataForTopicList.map((topicData, index) => 
-      <TopicListItem key={index} topicData={topicData} /> )}
+      <TopicListItem key={topicData.id} topicData={topicData} /> )}
     </div>
   );
 };
