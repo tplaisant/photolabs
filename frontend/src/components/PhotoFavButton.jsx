@@ -9,6 +9,8 @@ const PhotoFavButton = (props) => {
     setFavouritePhoto(prev => !prev);
   }
 
+  console.log(props.index)
+
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">

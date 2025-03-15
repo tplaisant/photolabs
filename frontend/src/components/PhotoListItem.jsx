@@ -5,9 +5,11 @@ const PhotoListItem = (props) => {
 
   const {id, location, urls, user} = props.userData
 
+  console.log(id);
+
   return (
     <div className ="photo-list__item">
-      <PhotoFavButton />
+      <PhotoFavButton index={id}/>
       <img className ="photo-list__image" src={urls.regular}/>    
       <div className="photo-list__user-details">      
         <img className ="photo-list__user-profile" src={user.profile}/>
@@ -18,7 +20,7 @@ const PhotoListItem = (props) => {
           </div>
         </div>
       </div>      
-    </div>    
+    </div>
   )
 };
 
