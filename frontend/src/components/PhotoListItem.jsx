@@ -4,12 +4,12 @@ import PhotoFavButton from '../components/PhotoFavButton';
 const PhotoListItem = (props) => {
 
   const {id, location, urls, user} = props.userData
-
-  console.log(id);
+  const handleClickFav = props.handleClickFav;
+  const favouritePhoto = props.favouritePhoto
 
   return (
     <div className ="photo-list__item">
-      <PhotoFavButton index={id}/>
+      <PhotoFavButton index={id} handleClickFav={handleClickFav} favouritePhoto={favouritePhoto}/>
       <img className ="photo-list__image" src={urls.regular}/>    
       <div className="photo-list__user-details">      
         <img className ="photo-list__user-profile" src={user.profile}/>
