@@ -13,7 +13,7 @@ const App = () => {
     likedPhoto => 1 && setFavPhoto(prev => !prev) 
     }, 0);
   const likedPhotosArray = new Array;
-  console.log(likedPhotosArray)
+  // console.log(photos[0].id)
 
   const [favouritePhoto, setFavouritePhoto] = useState(false);
   const handleClickFav = () => {

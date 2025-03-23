@@ -9,7 +9,7 @@ const PhotoList = (props) => {
 
   return (
     <ul className="photo-list">
-      { photos.map((user, index) => 
+      { photos.map((user, index) =>       
       <PhotoListItem key={index} userData={user} handleClickFav={handleClickFav} favouritePhoto={favouritePhoto}/>
       )}
     </ul>
