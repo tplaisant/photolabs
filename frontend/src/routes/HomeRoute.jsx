@@ -8,12 +8,20 @@ const HomeRoute = (props) => {
   const photos = props.photos;
   const favPhoto = props.favPhoto;
   const handleClickFav = props.handleClickFav;
-  const favouritePhoto = props.favouritePhoto
+  const likedPhotos = props.likedPhotos
 
   return (
     <div className="home-route"> 
-      <TopNavigationBar topics={topics} favPhoto={favPhoto}/>   
-      <PhotoList photos={photos} handleClickFav={handleClickFav} favouritePhoto={favouritePhoto}/>
+      <TopNavigationBar 
+      topics={topics} 
+      favPhoto={favPhoto}
+      />   
+      <PhotoList 
+      photos={photos} 
+      handleClickFav={handleClickFav} 
+      // favouritePhoto={favouritePhoto}
+      likedPhotos={likedPhotos}
+      />
     </div>
   );
 };

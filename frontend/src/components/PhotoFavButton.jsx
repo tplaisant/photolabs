@@ -4,14 +4,26 @@ import '../styles/PhotoFavButton.scss';
 const PhotoFavButton = (props) => {
 
   const handleClickFav = props.handleClickFav;
-  const favouritePhoto = props.favouritePhoto
+  // const favouritePhoto = props.favouritePhoto
+  const id = props.id
 
-  // console.log(props.index)
+  const handleClick = () => {
+    handleClickFav(id);
+  }  
+
+  const likedPhotos = props.likedPhotos
+  const favouritePhoto = likedPhotos.includes(id)
+  console.log(123);
+  console.log(favouritePhoto + ' ABC ' + id);
+  console.log(likedPhotos);
+  console.log(456);
 
   return (
-    <div className="photo-list__fav-icon" onClick={handleClickFav}>
+    <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={favouritePhoto} index={props.index}/>
+        <FavIcon 
+        selected={favouritePhoto}
+        />
       </div>
     </div>
   );
