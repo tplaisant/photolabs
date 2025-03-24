@@ -1,11 +1,12 @@
 import "../styles/PhotoList.scss";
 import PhotoListItem from '../components/PhotoListItem';
 
-const PhotoList = (props) => {
-
-  const photos = props.photos;
-  const handleClickFav = props.handleClickFav;
-  const likedPhotos = props.likedPhotos
+const PhotoList = ({
+  photos,
+  handleClickFav,
+  likedPhotos,
+  onClickPhoto
+}) => {
 
   return (
     <ul className="photo-list">
@@ -14,8 +15,8 @@ const PhotoList = (props) => {
       key={user.id} 
       userData={user} 
       handleClickFav={handleClickFav} 
-      // favouritePhoto={favPhoto}
       likedPhotos={likedPhotos}
+      onClickPhoto={onClickPhoto}
       />
       )}
     </ul>

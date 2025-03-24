@@ -7,7 +7,8 @@ const HomeRoute = ({
     photos, 
     isFavPhotoExist, 
     handleClickFav, 
-    likedPhotos 
+    likedPhotos,
+    onClickPhoto
   }) => {
 
   return (
@@ -20,6 +21,7 @@ const HomeRoute = ({
       photos={photos} 
       handleClickFav={handleClickFav}
       likedPhotos={likedPhotos}
+      onClickPhoto={onClickPhoto}
       />
     </div>
   );

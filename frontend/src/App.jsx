@@ -3,12 +3,14 @@ import './App.scss';
 import HomeRoute from './routes/HomeRoute';
 import topics from './mocks/topics';
 import photos from './mocks/photos';
+import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import { useState, useEffect } from 'react';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   
   const [likedPhotosArray, setLikedPhotosArray] = useState([]);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const handleClickFav = (id) => {
     setLikedPhotosArray(prevArray => 
@@ -17,6 +19,10 @@ const App = () => {
         : [...prevArray, id] // Add if not liked
     );  
   };
+
+  const onClickPhoto = (id) => {
+    setSelectedPhoto(id)
+  }
 
   useEffect(() => {}, [likedPhotosArray]); // Trigger re-render if a photo is liked
 
@@ -28,7 +34,14 @@ const App = () => {
       isFavPhotoExist={likedPhotosArray.length > 0}
       handleClickFav={handleClickFav} 
       likedPhotos={likedPhotosArray}
+      onClickPhoto={onClickPhoto}
       />
+
+      {selectedPhoto && (
+      <PhotoDetailsModal
+      photo={selectedPhoto}
+      />
+      )}
     </div>
   );
 };

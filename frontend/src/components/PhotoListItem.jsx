@@ -7,13 +7,17 @@ const PhotoListItem = (props) => {
   const handleClickFav = props.handleClickFav
   const likedPhotos = props.likedPhotos
   const favouritePhoto = likedPhotos.includes(id)
+  const onClickPhoto = props.onClickPhoto
+
+  const handleClick = () => {
+    onClickPhoto(id);
+  }  
 
   return (
-    <div className ="photo-list__item">
+    <div className ="photo-list__item" onClick={handleClick}>
       <PhotoFavButton 
       id={id} 
-      handleClickFav={handleClickFav} 
-      // favouritePhoto={favouritePhoto}
+      handleClickFav={handleClickFav}
       likedPhotos={likedPhotos}
       />
       <img className ="photo-list__image" src={urls.regular}/>    
