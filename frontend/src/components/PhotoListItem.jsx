@@ -8,8 +8,6 @@ const PhotoListItem = (props) => {
   const likedPhotos = props.likedPhotos
   const favouritePhoto = likedPhotos.includes(id)
 
-  console.log(favouritePhoto)
-
   return (
     <div className ="photo-list__item">
       <PhotoFavButton 

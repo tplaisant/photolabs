@@ -16,15 +16,21 @@ const App = () => {
   const handleClickFav = (id) => {
     likedPhotosArray.push([id])    
     setFavouritePhoto(prev => !prev);
-    // console.log(likedPhotosArray)
+    console.log(likedPhotosArray)
   }
+
+  (likedPhotosArray.length > 0 && setFavPhoto(prev => !prev))
+
+  console.log(likedPhotosArray)
+
+  const isFavPhotoExist = likedPhotosArray.length > 0
 
   return (
     <div className="App"> 
       <HomeRoute 
       topics={topics} 
       photos={photos} 
-      favPhoto={favPhoto} 
+      isFavPhotoExist={isFavPhotoExist} 
       handleClickFav={handleClickFav} 
       // favouritePhoto={favouritePhoto}
       likedPhotos={likedPhotosArray}

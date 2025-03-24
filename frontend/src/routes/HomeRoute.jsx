@@ -18,8 +18,7 @@ const HomeRoute = (props) => {
       />   
       <PhotoList 
       photos={photos} 
-      handleClickFav={handleClickFav} 
-      // favouritePhoto={favouritePhoto}
+      handleClickFav={handleClickFav}
       likedPhotos={likedPhotos}
       />
     </div>
