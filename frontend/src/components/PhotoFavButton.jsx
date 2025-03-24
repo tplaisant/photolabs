@@ -13,6 +13,7 @@ const PhotoFavButton = (props) => {
 
   const likedPhotos = props.likedPhotos
   const favouritePhoto = likedPhotos.includes(id)
+  console.log(favouritePhoto)
 
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>

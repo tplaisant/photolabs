@@ -3,36 +3,30 @@ import './App.scss';
 import HomeRoute from './routes/HomeRoute';
 import topics from './mocks/topics';
 import photos from './mocks/photos';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-
-  const [favPhoto, setFavPhoto] = useState(false)
   
-  const [favouritePhoto, setFavouritePhoto] = useState(false);
-  // const likedPhotosArray = new Array;
-  const likedPhotosArray = [];
+  const [likedPhotosArray, setLikedPhotosArray] = useState([]);
+
   const handleClickFav = (id) => {
-    likedPhotosArray.push([id])    
-    setFavouritePhoto(prev => !prev);
-    console.log(likedPhotosArray)
-  }
+    setLikedPhotosArray(prevArray => 
+      prevArray.includes(id) 
+        ? prevArray.filter(photoId => photoId !== id) // Remove if already liked
+        : [...prevArray, id] // Add if not liked
+    );  
+  };
 
-  (likedPhotosArray.length > 0 && setFavPhoto(prev => !prev))
-
-  console.log(likedPhotosArray)
-
-  const isFavPhotoExist = likedPhotosArray.length > 0
+  useEffect(() => {}, [likedPhotosArray]); // Trigger re-render if a photo is liked
 
   return (
     <div className="App"> 
       <HomeRoute 
       topics={topics} 
       photos={photos} 
-      isFavPhotoExist={isFavPhotoExist} 
+      isFavPhotoExist={likedPhotosArray.length > 0}
       handleClickFav={handleClickFav} 
-      // favouritePhoto={favouritePhoto}
       likedPhotos={likedPhotosArray}
       />
     </div>

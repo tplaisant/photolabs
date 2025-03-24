@@ -2,19 +2,19 @@ import "../styles/HomeRoute.scss";
 import TopNavigationBar from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 
-const HomeRoute = (props) => {
-
-  const topics = props.topics;
-  const photos = props.photos;
-  const favPhoto = props.favPhoto;
-  const handleClickFav = props.handleClickFav;
-  const likedPhotos = props.likedPhotos
+const HomeRoute = ({
+    topics, 
+    photos, 
+    isFavPhotoExist, 
+    handleClickFav, 
+    likedPhotos 
+  }) => {
 
   return (
     <div className="home-route"> 
       <TopNavigationBar 
       topics={topics} 
-      favPhoto={favPhoto}
+      isFavPhotoExist={isFavPhotoExist}
       />   
       <PhotoList 
       photos={photos} 

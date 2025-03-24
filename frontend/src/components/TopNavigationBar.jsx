@@ -2,10 +2,10 @@ import '../styles/TopNavigationBar.scss'
 import TopicList from '../components/TopicList';
 import FavBadge from './FavBadge';
 
-const TopNavigation = (props) => {
-
-  const topics = props.topics;
-  const isFavPhotoExist = props.isFavPhotoExist;
+const TopNavigationBar = ({
+    topics, 
+    isFavPhotoExist
+  }) => {
 
   return (
     <div className="top-nav-bar">
@@ -16,4 +16,4 @@ const TopNavigation = (props) => {
   )
 };
 
-export default TopNavigation;
+export default TopNavigationBar;
