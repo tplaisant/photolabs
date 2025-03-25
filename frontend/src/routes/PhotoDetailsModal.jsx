@@ -28,7 +28,6 @@ const PhotoDetailsModal = ({
           <PhotoFavButton
             // isFavorited={isFavorited}
             likedPhotos={likedPhotos}
-            // toggleFavorite={() => onLikeToggle(photo.id, !isFavorited)}
             handleClickFav={handleClickFav}
           />
         </div>

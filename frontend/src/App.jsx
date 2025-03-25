@@ -4,29 +4,18 @@ import HomeRoute from './routes/HomeRoute';
 import topics from './mocks/topics';
 import photos from './mocks/photos';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
-import { useState, useEffect } from 'react';
+// import { useState } from 'react';
+import useApplicationData from './hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
-const App = () => {
+const App = ({}) => {
   
-  const [likedPhotosArray, setLikedPhotosArray] = useState([]);
-  const [selectedPhotoId, setselectedPhotoId] = useState(null);
-
-  const handleClickFav = (id) => {
-    setLikedPhotosArray(prevArray => 
-      prevArray.includes(id) 
-        ? prevArray.filter(photoId => photoId !== id) // Remove if already liked
-        : [...prevArray, id] // Add if not liked
-    );  
-  };
-
-  const onClickPhoto = (id) => {
-    (selectedPhotoId) 
-    ? setselectedPhotoId(null)
-    : setselectedPhotoId(id)
-  }
-
-  useEffect(() => {}, [likedPhotosArray]); // Trigger re-render if a photo is liked
+  const { onClickPhoto,
+    likedPhotosArray,
+    setLikedPhotosArray, 
+    selectedPhotoId,
+    setselectedPhotoId,
+    handleClickFav } = useApplicationData();
 
   return (
     <div className="App"> 
