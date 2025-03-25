@@ -43,9 +43,9 @@ const App = () => {
       <PhotoDetailsModal
       photoId={selectedPhotoId}
       photo={photos.find(photo => photo.id === selectedPhotoId)}
-      // similarPhotos={selectedPhoto.similar_photos || []}
       likedPhotos={likedPhotosArray}
       onClickClose={onClickPhoto}
+      handleClickFav={handleClickFav}
       />
       )}
     </div>

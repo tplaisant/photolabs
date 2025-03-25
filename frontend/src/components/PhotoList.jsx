@@ -7,9 +7,6 @@ const PhotoList = ({
   likedPhotos,
   onClickPhoto
 }) => {
-  console.log('ALOOO')
-  console.log(photos)
-  console.log('ALOOO')
   return (
     <ul className="photo-list">
       { photos.map((photo) => (  

@@ -7,23 +7,19 @@ const PhotoDetailsModal = ({
   photoId,
   photo,
   likedPhotos,
-  onClickClose  
+  onClickClose,
+  handleClickFav
 }) => {
 
-  const handleClick = () => {
+  const handleClickClose = () => {
     onClickClose(null)
   }
 
   const similarPhotos = photo.similar_photos
 
-  console.log('AQUI')
-  console.log(photo)
-  console.log(similarPhotos)
-  console.log('ACABOU')
-
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={handleClick}>
+      <button className="photo-details-modal__close-button" onClick={handleClickClose}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
@@ -32,7 +28,8 @@ const PhotoDetailsModal = ({
           <PhotoFavButton
             // isFavorited={isFavorited}
             likedPhotos={likedPhotos}
-            toggleFavorite={() => onLikeToggle(photo.id, !isFavorited)}
+            // toggleFavorite={() => onLikeToggle(photo.id, !isFavorited)}
+            handleClickFav={handleClickFav}
           />
         </div>
 
@@ -51,11 +48,9 @@ const PhotoDetailsModal = ({
       <div className="photo-details-modal__similar-photos">
         <h3>Similar Photos</h3>
         <PhotoList
-          // photos={Object.values(similarPhotos || {}).filter(p => p.id !== photo.id)}
-          photos={similarPhotos}
-          // photos={photo}
+          photos={Object.values(similarPhotos || {}).filter(p => p.id !== photo.id)}
           likedPhotos={likedPhotos}
-          // onLikeToggle={onLikeToggle}
+          handleClickFav={handleClickFav}
           // onPhotoClick={(newPhoto) => {
           //   onPhotoClick({
           //     ...newPhoto,
