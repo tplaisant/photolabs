@@ -42,7 +42,9 @@ const App = () => {
       {selectedPhotoId && (
       <PhotoDetailsModal
       photoId={selectedPhotoId}
-      photo={photos[selectedPhotoId]}
+      photo={photos.find(photo => photo.id === selectedPhotoId)}
+      // similarPhotos={selectedPhoto.similar_photos || []}
+      likedPhotos={likedPhotosArray}
       onClickClose={onClickPhoto}
       />
       )}

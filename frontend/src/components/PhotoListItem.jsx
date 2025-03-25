@@ -3,7 +3,7 @@ import PhotoFavButton from '../components/PhotoFavButton';
 
 const PhotoListItem = (props) => {
 
-  const {id, location, urls, user} = props.userData
+  const {id, location, urls, user} = props.photo
   const handleClickFav = props.handleClickFav
   const likedPhotos = props.likedPhotos
   const favouritePhoto = likedPhotos.includes(id)

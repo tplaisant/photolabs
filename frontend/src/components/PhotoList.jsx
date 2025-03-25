@@ -7,18 +7,20 @@ const PhotoList = ({
   likedPhotos,
   onClickPhoto
 }) => {
-
+  console.log('ALOOO')
+  console.log(photos)
+  console.log('ALOOO')
   return (
     <ul className="photo-list">
-      { photos.map((user) =>         
+      { photos.map((photo) => (  
       <PhotoListItem 
-      key={user.id} 
-      userData={user} 
+      key={photo.id}
+      photo={photo} 
       handleClickFav={handleClickFav} 
       likedPhotos={likedPhotos}
       onClickPhoto={onClickPhoto}
       />
-      )}
+      ))}
     </ul>
   );
 };
