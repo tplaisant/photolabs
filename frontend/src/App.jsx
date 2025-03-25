@@ -21,7 +21,9 @@ const App = () => {
   };
 
   const onClickPhoto = (id) => {
-    setSelectedPhoto(id)
+    (selectedPhoto) 
+    ? setSelectedPhoto(null)
+    : setSelectedPhoto(id)
   }
 
   useEffect(() => {}, [likedPhotosArray]); // Trigger re-render if a photo is liked
@@ -40,6 +42,7 @@ const App = () => {
       {selectedPhoto && (
       <PhotoDetailsModal
       photo={selectedPhoto}
+      onClickClose={onClickPhoto}
       />
       )}
     </div>
