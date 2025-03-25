@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 const App = () => {
   
   const [likedPhotosArray, setLikedPhotosArray] = useState([]);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedPhotoId, setselectedPhotoId] = useState(null);
 
   const handleClickFav = (id) => {
     setLikedPhotosArray(prevArray => 
@@ -21,9 +21,9 @@ const App = () => {
   };
 
   const onClickPhoto = (id) => {
-    (selectedPhoto) 
-    ? setSelectedPhoto(null)
-    : setSelectedPhoto(id)
+    (selectedPhotoId) 
+    ? setselectedPhotoId(null)
+    : setselectedPhotoId(id)
   }
 
   useEffect(() => {}, [likedPhotosArray]); // Trigger re-render if a photo is liked
@@ -39,9 +39,10 @@ const App = () => {
       onClickPhoto={onClickPhoto}
       />
 
-      {selectedPhoto && (
+      {selectedPhotoId && (
       <PhotoDetailsModal
-      photo={selectedPhoto}
+      photoId={selectedPhotoId}
+      photo={photos[selectedPhotoId]}
       onClickClose={onClickPhoto}
       />
       )}
