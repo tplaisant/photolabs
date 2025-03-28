@@ -8,7 +8,8 @@ const HomeRoute = ({
     isFavPhotoExist, 
     handleClickFav, 
     likedPhotos,
-    onClickPhoto
+    onClickPhoto,
+    handleClickTopic,
   }) => {
 
   return (
@@ -16,6 +17,7 @@ const HomeRoute = ({
       <TopNavigationBar 
       topics={topics} 
       isFavPhotoExist={isFavPhotoExist}
+      handleClickTopic={handleClickTopic}
       />   
       <PhotoList 
       photos={photos} 

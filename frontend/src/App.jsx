@@ -13,7 +13,8 @@ const App = ({}) => {
     selectedPhotoId,
     handleClickFav,
     photoData,
-    topicData } = useApplicationData();
+    topicData,
+    handleClickTopic } = useApplicationData();
 
   return (
     <div className="App"> 
@@ -22,6 +23,7 @@ const App = ({}) => {
       photos={photoData} 
       isFavPhotoExist={likedPhotosArray.length > 0}
       handleClickFav={handleClickFav} 
+      handleClickTopic={handleClickTopic}
       likedPhotos={likedPhotosArray}
       onClickPhoto={toggleSelectedPhoto}
       />

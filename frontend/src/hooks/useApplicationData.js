@@ -7,6 +7,7 @@ export const ACTIONS = {
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPICS_DATA: 'SET_TOPICS_DATA',
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
 }
 
 function reducer(state, action) {
@@ -36,6 +37,11 @@ function reducer(state, action) {
       ...state,
       topicData: action.payload.data      
     };
+    case ACTIONS.GET_PHOTOS_BY_TOPICS:
+    return {
+      ...state,
+      photoByTopic: action.payload.data      
+    };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -49,7 +55,8 @@ const useApplicationData = () => {
     likedPhotosArray: [],
     selectedPhotoId: null,
     photoData: [],
-    topicData: []
+    topicData: [],
+    photoByTopic: []
   });
 
   useEffect(() => {
@@ -68,10 +75,17 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.LIKE_PHOTO, payload: id });
   };
 
+  const handleClickTopic = (id) => {
+    axios.get(`http://localhost:8001/api/topics/${id}/photos`)
+    .then((response) => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: { data: response.data } }))  
+    dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: id });
+  }
+  
   return { 
     toggleSelectedPhoto,    
     selectedPhotoId: state.selectedPhotoId,
     handleClickFav,
+    handleClickTopic,
     likedPhotosArray: state.likedPhotosArray,
     photoData: state.photoData,
     topicData: state.topicData
