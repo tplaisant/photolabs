@@ -52,6 +52,7 @@ function reducer(state, action) {
 const useApplicationData = () => {
 
   const [state, dispatch] = useReducer(reducer, {
+    // Initialize
     likedPhotosArray: [],
     selectedPhotoId: null,
     photoData: [],
@@ -60,9 +61,11 @@ const useApplicationData = () => {
   });
 
   useEffect(() => {
+    // Retrieve photos
     axios.get('http://localhost:8001/api/photos')
     .then((response) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { data: response.data } }))
     
+    // Retrieve topics
     axios.get('http://localhost:8001/api/topics')
     .then((response) => dispatch({ type: ACTIONS.SET_TOPICS_DATA, payload: { data: response.data } }))  
   }, []);
@@ -76,6 +79,7 @@ const useApplicationData = () => {
   };
 
   const handleClickTopic = (id) => {
+    // Retrieve photos by topic when user click on specific topic
     axios.get(`http://localhost:8001/api/topics/${id}/photos`)
     .then((response) => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: { data: response.data } }))  
     dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: id });
