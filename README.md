@@ -13,7 +13,6 @@ Photo Modal View
 ![Modal View](./screenshots/modal.jpg)
 ## Setup
 
-Backend
 # 📦 Server Backend
 
 ## 🚀 Overview
@@ -83,37 +82,9 @@ The project uses the following main dependencies:
 
 ---
 
-## 🧪 Running Tests
-Run unit tests with:
-```sh
-npm test
-```
-
----
-
-## 📜 Scripts
-| Command      | Description |
-|-------------|-------------|
-| `npm start` | Starts the server |
-| `npm run error` | Starts the server with a test error |
-| `npm run reset` | Resets the PostgreSQL database |
-| `npm test` | Runs the test suite |
-
----
-
-## 🛠️ API Endpoints (Example)
-| Method | Endpoint | Description |
-|--------|---------|-------------|
-| GET | `/api/photos` | Fetch all photos |
-| POST | `/api/photos` | Add a new photo |
-| DELETE | `/api/photos/:id` | Remove a photo by ID |
-
----
-
 Refer to backend/readme for further details.
 [Backend Setup Instructions](/backend/)
 
-Frontend
 # 🌐 Frontend
 
 ## 🚀 Overview
@@ -173,23 +144,5 @@ The app will be available at `http://localhost:5173` by default.
 
 ---
 
-## 🧪 Running Tests
-Run unit tests with:
-```sh
-npm test
-```
-
----
-
-## 📜 Scripts
-| Command      | Description |
-|-------------|-------------|
-| `npm run dev` | Starts the development server |
-| `npm run build` | Builds the project for production |
-| `npm run preview` | Previews the production build |
-| `npm run lint` | Runs ESLint to check code quality |
-| `npm test` | Runs the test suite |
-
----
 Refer to frontend/readme for further details.
 [Frontend Setup Instructions](/frontend/)
