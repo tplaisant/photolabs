@@ -5,17 +5,25 @@ import FavBadge from './FavBadge';
 const TopNavigationBar = ({
     topics, 
     isFavPhotoExist,
-    handleClickTopic
+    handleClickTopic,
+    onClickHome
   }) => {
+
+    const handleClickHome = () => {
+      onClickHome();
+    }
 
   return (
     <div className="top-nav-bar">
-      <span className="top-nav-bar__logo">PhotoLabs</span>
+      <div onClick={handleClickHome}>
+        <span className="top-nav-bar__logo">PhotoLabs</span>
+      </div>
       <TopicList 
       topics={topics}
       handleClickTopic={handleClickTopic}/>
       <FavBadge 
-      isFavPhotoExist={isFavPhotoExist}/>
+      isFavPhotoExist={isFavPhotoExist}
+      selected={true}/>
     </div>
   )
 };

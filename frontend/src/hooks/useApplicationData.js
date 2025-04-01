@@ -10,6 +10,8 @@ export const ACTIONS = {
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
 }
 
+const API_URL = 'http://localhost:8001/api';
+
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.LIKE_PHOTO:
@@ -61,13 +63,22 @@ const useApplicationData = () => {
   });
 
   useEffect(() => {
+
     // Retrieve photos
-    axios.get('http://localhost:8001/api/photos')
-    .then((response) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { data: response.data } }))
-    
+    const photosPromise = axios.get(`${API_URL}/photos`);
     // Retrieve topics
-    axios.get('http://localhost:8001/api/topics')
-    .then((response) => dispatch({ type: ACTIONS.SET_TOPICS_DATA, payload: { data: response.data } }))  
+    const topicPromise = axios.get(`${API_URL}/topics`);
+    const promises = [photosPromise, topicPromise];
+
+    Promise.all(promises)
+     .then((responseArray) => {
+
+      dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { data: responseArray[0].data } })
+      dispatch({ type: ACTIONS.SET_TOPICS_DATA, payload: { data: responseArray[1].data } })
+     })
+     .catch((error) => {
+      console.log(error.message);
+     })
   }, []);
 
   const toggleSelectedPhoto = (id) => {
@@ -78,11 +89,24 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.LIKE_PHOTO, payload: id });
   };
 
+  const onClickHome = () => {
+    // Retrieve photos by topic when user click on specific topic
+    axios.get(`${API_URL}/photos`)
+    .then((response) => {
+      dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: { data: response.data } })})
+    .catch((error) => {
+      console.log(error.message)
+    })
+  }
+
   const handleClickTopic = (id) => {
     // Retrieve photos by topic when user click on specific topic
-    axios.get(`http://localhost:8001/api/topics/${id}/photos`)
-    .then((response) => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: { data: response.data } }))  
-    dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: id });
+    axios.get(`${API_URL}/topics/${id}/photos`)
+    .then((response) => {
+      dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: { data: response.data } })})
+    .catch((error) => {
+      console.log(error.message)
+    })
   }
   
   return { 
@@ -92,7 +116,9 @@ const useApplicationData = () => {
     handleClickTopic,
     likedPhotosArray: state.likedPhotosArray,
     photoData: state.photoData,
-    topicData: state.topicData
+    topicData: state.topicData,
+    photoByTopic: state.photoByTopic,
+    onClickHome,
   }
 };
 

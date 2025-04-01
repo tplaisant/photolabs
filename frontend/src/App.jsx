@@ -14,18 +14,21 @@ const App = ({}) => {
     handleClickFav,
     photoData,
     topicData,
-    handleClickTopic } = useApplicationData();
+    photoByTopic,
+    handleClickTopic,
+    onClickHome } = useApplicationData();
 
   return (
     <div className="App"> 
       <HomeRoute 
       topics={topicData} 
-      photos={photoData} 
+      photos={(photoByTopic.length !== 0) ? photoByTopic : photoData} 
       isFavPhotoExist={likedPhotosArray.length > 0}
       handleClickFav={handleClickFav} 
       handleClickTopic={handleClickTopic}
       likedPhotos={likedPhotosArray}
       onClickPhoto={toggleSelectedPhoto}
+      onClickHome={onClickHome}
       />
 
       {selectedPhotoId && 

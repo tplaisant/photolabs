@@ -4,7 +4,6 @@ import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
 const PhotoDetailsModal = ({
-  photoId,
   photo,
   likedPhotos,
   onClickClose,
@@ -26,7 +25,7 @@ const PhotoDetailsModal = ({
       <div className="photo-details-modal__images">
         <div className="photo-details-modal__fav-icon">
           <PhotoFavButton
-            // isFavorited={isFavorited}
+            id={photo.id} 
             likedPhotos={likedPhotos}
             handleClickFav={handleClickFav}
           />
@@ -50,14 +49,6 @@ const PhotoDetailsModal = ({
           photos={Object.values(similarPhotos || {}).filter(p => p.id !== photo.id)}
           likedPhotos={likedPhotos}
           handleClickFav={handleClickFav}
-          // onPhotoClick={(newPhoto) => {
-          //   onPhotoClick({
-          //     ...newPhoto,
-          //     similar_photos: Array.isArray(newPhoto.similar_photos)
-          //       ? newPhoto.similar_photos
-          //       : Object.values(newPhoto.similar_photos || {})
-          //   });
-          // }}
         />
       </div>
 

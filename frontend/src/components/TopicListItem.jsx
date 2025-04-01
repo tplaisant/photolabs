@@ -2,7 +2,8 @@ import "../styles/TopicListItem.scss";
 
 const TopicListItem = (props) => {
 
-  const { id, slug, title } = props.topicData
+  const id = props.topicData.id
+  const title = props.topicData.title
   const handleClickTopic = props.handleClickTopic
 
   const handleClick = () => {

@@ -10,6 +10,7 @@ const HomeRoute = ({
     likedPhotos,
     onClickPhoto,
     handleClickTopic,
+    onClickHome,
   }) => {
 
   return (
@@ -18,6 +19,7 @@ const HomeRoute = ({
       topics={topics} 
       isFavPhotoExist={isFavPhotoExist}
       handleClickTopic={handleClickTopic}
+      onClickHome={onClickHome}
       />   
       <PhotoList 
       photos={photos} 

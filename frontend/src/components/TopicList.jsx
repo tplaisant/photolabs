@@ -8,7 +8,7 @@ const TopicList = ({
 
   return (
     <div className="top-nav-bar__topic-list">
-      { topics.map((topicData, index) => 
+      { topics.map((topicData) => 
       <TopicListItem 
       key={topicData.id} 
       topicData={topicData}
